@@ -3,7 +3,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
 import pg from 'pg';
 
-import { models } from './models';
+import { models } from './models.constants';
 
 @Module({})
 export class DatabaseModule {

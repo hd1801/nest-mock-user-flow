@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { Repository, Sequelize } from 'sequelize-typescript';
 
-import { UserModel } from '../models';
 import { User, UserAttributes } from '../types';
 import { BaseService } from './base.service';
+import { UserModel } from '../models';
 
 @Injectable()
 export class UserModelService extends BaseService<
