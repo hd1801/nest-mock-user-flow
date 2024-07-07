@@ -3,16 +3,9 @@ import { DatabaseModule, UserModelService } from 'src/database';
 import { RedisModule } from 'src/redis';
 import { UsersController } from './users.controller';
 import { UsersService } from './users.service';
-import { JwtModule } from '@nestjs/jwt';
 
 @Module({
-  imports: [
-    RedisModule,
-    DatabaseModule.forFeature([UserModelService]),
-    JwtModule.register({
-      secret: 'secretKey',
-    }),
-  ],
+  imports: [RedisModule, DatabaseModule.forFeature([UserModelService])],
   providers: [UsersService],
   controllers: [UsersController],
 })

@@ -11,7 +11,10 @@ export interface BlockedUser {
 }
 
 export interface BlockedUserAttributes
-  extends Optional<BlockedUser, 'id' | 'createdAt' | 'updatedAt'> {}
+  extends Optional<
+    BlockedUser,
+    'id' | 'blockedUser' | 'createdAt' | 'updatedAt'
+  > {}
 
 export const BlockedUserFields = {
   id: 'id',

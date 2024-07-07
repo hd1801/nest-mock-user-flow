@@ -1,9 +1,11 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 
+import { JwtModule } from '@nestjs/jwt';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DatabaseModule } from './database/database.module';
+import { BlockUsersModule } from './modules';
 import { UsersModule } from './modules/users/users.module';
 import { RedisModule } from './redis/redis.module';
 
@@ -16,6 +18,11 @@ import { RedisModule } from './redis/redis.module';
     }),
     UsersModule,
     RedisModule,
+    BlockUsersModule,
+    JwtModule.register({
+      global: true,
+      secret: 'secretKey',
+    }),
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -152,11 +152,12 @@ export abstract class BaseService<
   }
 
   public async removeWhere(
+    entityFilter: WhereOptions<K>,
     transaction?: Transaction,
     findOptions?: FindOptions<K>,
   ) {
     return this.repository
-      .findAll({ transaction, ...findOptions })
+      .findAll({ transaction, where: entityFilter, ...findOptions })
       .then(async (entities) => {
         await this.repository.destroy({
           transaction,
